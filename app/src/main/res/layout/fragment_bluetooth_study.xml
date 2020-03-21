@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.qmuiteam.qmui.widget.pullRefreshLayout.QMUIPullRefreshLayout
+        android:id="@+id/pull_to_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_BlueTooth"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/qmui_config_color_white"/>
+    </com.qmuiteam.qmui.widget.pullRefreshLayout.QMUIPullRefreshLayout>
+
+    <LinearLayout
+        android:layout_gravity="bottom"
+        android:background="@color/qmui_config_color_white"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/et_sendMsg"
+            android:layout_weight="5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/btn_send"
+            android:text="发送"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+      <Button
+          android:text="切换到map"
+          android:layout_marginBottom="56dp"
+          android:layout_gravity="bottom"
+          android:id="@+id/btn_goto_Map"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"/>
+
+</FrameLayout>
