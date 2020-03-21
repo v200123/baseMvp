@@ -3,7 +3,6 @@ package com.lc.newlocation
 import android.content.Context
 import com.example.newlocation02.R
 //import com.baidu.mapapi.map.MapView
-import com.lc.basemvp.BaseActivity
 //import com.lc.mvp.BaseActivity
 import com.lc.newlocation.mvp.IMainView
 import com.lc.newlocation.mvp.presenter.IMainPresenter
