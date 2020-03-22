@@ -15,9 +15,9 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
+import com.example.newlocation02.R
 import com.github.jokar.permission.PermissionUtil
-import com.lc.mvp.BaseFragment
-import com.lc.newlocation.R
+import com.lc.basemvp.BaseFragment
 import com.lc.newlocation.bean.BlueToothBean
 import com.lc.newlocation.mvp.IBluetoothView
 import com.lc.newlocation.mvp.presenter.BluetoothPresenter
@@ -75,7 +75,11 @@ class BluetoothStudyFragment : BaseFragment<IBluetoothView, BluetoothPresenter>(
         blueAdapter = BlueAdapter(R.layout.fragment_rv_bluetooth_item)
     }
 
-    override fun initView(view: View) {
+    override fun showMsg(msg: String) {
+        TODO("Not yet implemented")
+    }
+
+    override fun initView() {
 
         btn_send.setOnClickListener {
           mPresenter.send(et_sendMsg.text.toString())

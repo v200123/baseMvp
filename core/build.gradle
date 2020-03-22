@@ -1,8 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-apply plugin: 'com.github.dcendents.android-maven'
-//group='com.lcBase.Mvp'
+
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
@@ -45,10 +44,12 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     api 'com.github.jokar:permission:0.0.1'
-    api  'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.1'
-    api 'androidx.navigation:navigation-fragment-ktx:2.2.1'
-    api 'androidx.navigation:navigation-ui-ktx:2.2.1'
-    api 'com.qmuiteam:qmui:2.0.0-alpha05'
+    api 'io.reactivex.rxjava3:rxandroid:3.0.0'
+    // Because RxAndroid releases are few and far between, it is recommended you also
+    // explicitly depend on RxJava's latest version for bug fixes and new features.
+    // (see https://github.com/ReactiveX/RxJava/releases for latest 3.x.x version)
+    api 'io.reactivex.rxjava3:rxjava:3.0.1'
+    implementation project(path: ':basemvp')
 //    implementation 'com.github.v200123:baseMvp:V1.0.0'
 
 }

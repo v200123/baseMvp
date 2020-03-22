@@ -13,8 +13,16 @@ abstract class BaseFragment<V : IBaseFragmentView, P : BasePresenter<V>> : Fragm
 
     var rootView: View? = null
     private lateinit var mContext: Context
-    private val mPresenter: P by lazy {
+    val mPresenter: P by lazy {
         createPresenter()
+    }
+
+    override fun showLoading() {
+        TODO("Not yet implemented")
+    }
+
+    override fun hideLoading() {
+        TODO("Not yet implemented")
     }
 
     abstract fun createPresenter(): P

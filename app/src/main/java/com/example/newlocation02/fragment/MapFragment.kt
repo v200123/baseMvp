@@ -12,13 +12,10 @@ import com.baidu.location.BDLocation
 import com.baidu.location.LocationClient
 import com.baidu.location.LocationClientOption
 import com.baidu.mapapi.VersionInfo
-import com.baidu.mapapi.common.BaiduMapSDKException
 import com.baidu.mapapi.map.*
-import com.baidu.mapapi.model.LatLng
+import com.example.newlocation02.R
 import com.github.jokar.permission.PermissionUtil
-import com.lc.mvp.BaseFragment
-import com.lc.newlocation.R
-import com.lc.newlocation.Show
+import com.lc.basemvp.BaseFragment
 import com.lc.newlocation.mvp.IMapFragment
 import com.lc.newlocation.mvp.presenter.IMapPresenter
 import com.qmuiteam.qmui.util.QMUIDisplayHelper
@@ -63,7 +60,7 @@ class MapFragment : BaseFragment<IMapFragment, IMapPresenter>() {
     }
 
 
-    override fun initView(view: View) {
+    override fun initView() {
         mBaiduMap = map_fragment
         baiduMap = mBaiduMap.map
         baiduMap.isMyLocationEnabled = true
@@ -152,6 +149,10 @@ class MapFragment : BaseFragment<IMapFragment, IMapPresenter>() {
     }
 
     override fun hideLoading() {
+        TODO("Not yet implemented")
+    }
+
+    override fun showMsg(msg: String) {
         TODO("Not yet implemented")
     }
 
