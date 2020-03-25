@@ -15,9 +15,9 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
+import com.example.newlocation02.R
 import com.github.jokar.permission.PermissionUtil
-import com.lc.mvp.BaseFragment
-import com.lc.newlocation.R
+import com.lc.basemvp.BaseFragment
 import com.lc.newlocation.bean.BlueToothBean
 import com.lc.newlocation.mvp.IBluetoothView
 import com.lc.newlocation.mvp.presenter.BluetoothPresenter
@@ -75,46 +75,50 @@ class BluetoothStudyFragment : BaseFragment<IBluetoothView, BluetoothPresenter>(
         blueAdapter = BlueAdapter(R.layout.fragment_rv_bluetooth_item)
     }
 
-    override fun initView(view: View) {
+    override fun initView() {
 
-        btn_send.setOnClickListener {
-          mPresenter.send(et_sendMsg.text.toString())
-        }
-
+//        btn_send.setOnClickListener {
+//          mPresenter.send(et_sendMsg.text.toString())
+//        }
+//
         btn_goto_Map.setOnClickListener {
-            Navigation.findNavController(it).navigate(R.id.action_bluetoothStudyFragment_to_mapFragment)
+            Navigation.findNavController(it).navigate(R.id.action_bluetoothStudyFragment_to_lookBatteryFragment)
         }
+//
+//        pull_to_refresh.setOnPullListener(object : QMUIPullRefreshLayout.OnPullListener {
+//            override fun onMoveRefreshView(offset: Int) {
+//
+//            }
+//
+//            override fun onRefresh() {
+//                mPresenter.openBlueTooth(context)
+//                blueAdapter.replaceData(ArrayList<BlueToothBean>())
+//
+//            }
+//
+//            override fun onMoveTarget(offset: Int) {
+//            }
+//        })
+//        mPresenter.openBlueTooth(context)
+//
+//        rv_BlueTooth.apply {
+//            adapter = blueAdapter
+//            layoutManager = LinearLayoutManager(context)
+//        }
+//        blueAdapter.setOnItemClickListener { adapter, view, position ->
+//            run {
+//                val blueToothBean = adapter.data[position] as BlueToothBean
+//                if (blueToothBean.drawableId == R.drawable.bluetooth_type_01)
+//                    mPresenter.blueToothInterface = TraditionBlueToothImpl()
+//                else
+//                    mPresenter.blueToothInterface = TraditionBlueToothImpl()
+//                mPresenter.connect(blueToothBean.address)
+//            }
+//        }
+    }
 
-        pull_to_refresh.setOnPullListener(object : QMUIPullRefreshLayout.OnPullListener {
-            override fun onMoveRefreshView(offset: Int) {
-
-            }
-
-            override fun onRefresh() {
-                mPresenter.openBlueTooth(context)
-                blueAdapter.replaceData(ArrayList<BlueToothBean>())
-
-            }
-
-            override fun onMoveTarget(offset: Int) {
-            }
-        })
-        mPresenter.openBlueTooth(context)
-
-        rv_BlueTooth.apply {
-            adapter = blueAdapter
-            layoutManager = LinearLayoutManager(context)
-        }
-        blueAdapter.setOnItemClickListener { adapter, view, position ->
-            run {
-                val blueToothBean = adapter.data[position] as BlueToothBean
-                if (blueToothBean.drawableId == R.drawable.bluetooth_type_01)
-                    mPresenter.blueToothInterface = TraditionBlueToothImpl()
-                else
-                    mPresenter.blueToothInterface = TraditionBlueToothImpl()
-                mPresenter.connect(blueToothBean.address)
-            }
-        }
+    override fun showMsg(msg: String) {
+        TODO("Not yet implemented")
     }
 
     override fun getLayoutId() = R.layout.fragment_bluetooth_study

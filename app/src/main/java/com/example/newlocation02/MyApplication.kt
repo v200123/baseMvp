@@ -15,14 +15,11 @@ import com.baidu.mapapi.SDKInitializer
 class MyApplication : Application() {
     
 
- 
-
-
 
     override fun onCreate() {
         super.onCreate()
-        SDKInitializer.initialize(this)
-        SDKInitializer.setCoordType(CoordType.BD09LL)
+//        SDKInitializer.initialize(this)
+//        SDKInitializer.setCoordType(CoordType.BD09LL)
 
 //        OpenLogUtil.setModuleLogEnable(ModuleName.TILE_OVERLAY_MODULE,true)
     }

@@ -6,8 +6,10 @@ import android.content.Intent
 import android.content.IntentFilter
 import android.os.BatteryManager
 import android.view.View
-import com.lc.mvp.BaseFragment
-import com.lc.newlocation.R
+import androidx.navigation.NavGraphNavigator
+import androidx.navigation.Navigation
+import com.example.newlocation02.R
+import com.lc.basemvp.BaseFragment
 import com.lc.newlocation.mvp.ILookBatteryFragmentView
 import com.lc.newlocation.mvp.presenter.LookBatteryFragmentPresenter
 import kotlinx.android.synthetic.main.frgment_lookbattery.*
@@ -27,8 +29,13 @@ class LookBatteryFragment : BaseFragment<ILookBatteryFragmentView, LookBatteryFr
 
     }
 
-    override fun initView(view: View) {
+    override fun initView() {
         textView.text = "显示充电电流"
+        btn_goto_Animation.setOnClickListener{ Navigation.findNavController(it).navigate(R.id.action_lookBatteryFragment_to_animationFragment) }
+    }
+
+    override fun showMsg(msg: String) {
+        TODO("Not yet implemented")
     }
 
     override fun getLayoutId(): Int  = R.layout.frgment_lookbattery

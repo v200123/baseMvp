@@ -1,2 +1,3 @@
 rootProject.name='newLocation02'
 include ':app', ':basemvp', ':core'
+include ':utils'

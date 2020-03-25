@@ -4,8 +4,8 @@ import android.bluetooth.BluetoothManager
 import android.bluetooth.le.ScanCallback
 import android.bluetooth.le.ScanResult
 import android.content.Context
+import com.example.newlocation02.R
 import com.lc.basemvp.BasePresenter
-import com.lc.newlocation.R
 import com.lc.newlocation.bean.BlueToothBean
 import com.lc.newlocation.mvp.IBluetoothView
 import com.lc.newlocation.myInterface.BlueToothInterface

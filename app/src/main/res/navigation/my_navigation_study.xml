@@ -18,9 +18,20 @@
         <action
             android:id="@+id/action_bluetoothStudyFragment_to_mapFragment"
             app:destination="@id/mapFragment" />
+        <action
+            android:id="@+id/action_bluetoothStudyFragment_to_lookBatteryFragment"
+            app:destination="@id/lookBatteryFragment" />
     </fragment>
     <fragment
         android:id="@+id/lookBatteryFragment"
         android:name="com.lc.newlocation.fragment.LookBatteryFragment"
-        android:label="LookBatteryFragment" />
+        android:label="LookBatteryFragment" >
+        <action
+            android:id="@+id/action_lookBatteryFragment_to_animationFragment"
+            app:destination="@id/animationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/animationFragment"
+        android:name="com.example.newlocation02.fragment.AnimationFragment"
+        android:label="AnimationFragment" />
 </navigation>
