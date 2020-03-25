@@ -156,6 +156,10 @@ class MapFragment : BaseFragment<IMapFragment, IMapPresenter>() {
         TODO("Not yet implemented")
     }
 
+    override fun showMsg(msg: String) {
+        TODO("Not yet implemented")
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         locationClient.stop()
