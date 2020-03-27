@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-
+apply plugin: 'kotlin-kapt'
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
@@ -30,6 +30,7 @@ android {
 }
 
 dependencies {
+    def room_version = "2.2.3"
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.1.0'
@@ -44,6 +45,17 @@ dependencies {
 // explicitly depend on RxJava's latest version for bug fixes and new features.
 // (see https://github.com/ReactiveX/RxJava/releases for latest 2.x.x version)
     implementation 'io.reactivex.rxjava3:rxjava:3.0.0'
+    implementation 'com.qmuiteam:qmui:2.0.0-alpha05'
+
+    implementation "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version" // For Kotlin use kapt instead of annotationProcessor
+
+    // optional - Kotlin Extensions and Coroutines support for Room
+    implementation "androidx.room:room-ktx:$room_version"
     implementation project(path: ':core')
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.2.1'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.2.1'
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.1'
+    implementation project(path: ':utils')
 
 }

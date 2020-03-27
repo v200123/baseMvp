@@ -11,12 +11,12 @@ import kotlin.properties.ReadWriteProperty
 import kotlin.reflect.KProperty
 
 @Suppress("UNCHECKED_CAST")
-class SPUtils<T>(val defaultValue:T):ReadWriteProperty<T,T> {
+class SPUtils<T>(private val defaultValue:T) {
     private val mSharePreferce:SharedPreferences by lazy {
        context.getSharedPreferences(SPName, Context.MODE_PRIVATE)
     }
 
-    override fun getValue(thisRef: T, property: KProperty<*>): T  = mSharePreferce.run {
+    operator fun getValue(thisRef: T, property: KProperty<*>): T  = mSharePreferce.run {
         when(defaultValue)
         {
             is Int ->{return@run this.getInt(SPName,defaultValue)as T}
@@ -28,7 +28,7 @@ class SPUtils<T>(val defaultValue:T):ReadWriteProperty<T,T> {
         }
     }
 
-    override fun setValue(thisRef: T, property: KProperty<*>, value: T) {
+    operator fun setValue(thisRef: T, property: KProperty<*>, value: T) {
         with(mSharePreferce.edit()){
             when (value) {
                 is Long -> putLong(SPName, value)
@@ -40,4 +40,5 @@ class SPUtils<T>(val defaultValue:T):ReadWriteProperty<T,T> {
             }.apply()
         }
     }
+
 }

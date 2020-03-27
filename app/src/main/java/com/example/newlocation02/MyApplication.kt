@@ -1,11 +1,8 @@
-package com.lc.newlocation
+package com.example.newlocation02
 
 import android.app.Application
 import android.content.Context
-import com.baidu.mapapi.CoordType
-import com.baidu.mapapi.ModuleName
-import com.baidu.mapapi.OpenLogUtil
-import com.baidu.mapapi.SDKInitializer
+import com.lc.utils.LcUtils
 
 /**
 @packageName com.lc.newlocation
@@ -18,6 +15,7 @@ class MyApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
+        LcUtils.init(this)
 //        SDKInitializer.initialize(this)
 //        SDKInitializer.setCoordType(CoordType.BD09LL)
 

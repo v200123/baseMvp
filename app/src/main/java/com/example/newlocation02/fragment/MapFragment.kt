@@ -18,6 +18,7 @@ import com.github.jokar.permission.PermissionUtil
 import com.lc.basemvp.BaseFragment
 import com.lc.newlocation.mvp.IMapFragment
 import com.lc.newlocation.mvp.presenter.IMapPresenter
+import com.lc.utils.SPUtils
 import com.qmuiteam.qmui.util.QMUIDisplayHelper
 import com.qmuiteam.qmui.widget.popup.QMUINormalPopup
 import com.qmuiteam.qmui.widget.popup.QMUIPopup
@@ -148,9 +149,6 @@ class MapFragment : BaseFragment<IMapFragment, IMapPresenter>() {
         TODO("Not yet implemented")
     }
 
-    override fun showMsg(msg: String) {
-        TODO("Not yet implemented")
-    }
 
     override fun hideLoading() {
         TODO("Not yet implemented")
@@ -162,6 +160,7 @@ class MapFragment : BaseFragment<IMapFragment, IMapPresenter>() {
 
     override fun onDestroy() {
         super.onDestroy()
+
         locationClient.stop()
         baiduMap.isMyLocationEnabled = false
         mBaiduMap.onDestroy()

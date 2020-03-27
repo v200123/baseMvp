@@ -4,9 +4,8 @@ import android.bluetooth.BluetoothAdapter
 import android.bluetooth.BluetoothGatt
 import android.bluetooth.BluetoothGattCallback
 import android.bluetooth.BluetoothGattDescriptor
-import com.lc.newlocation.MyApplication
+import com.example.newlocation02.MyApplication
 import com.lc.newlocation.myInterface.BlueToothInterface
-import kotlin.reflect.KProperty
 
 /**
 @packageName com.lc.newlocation.myInterface.impl

@@ -8,6 +8,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.os.Looper
+import android.util.TypedValue
 import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.navigation.Navigation
@@ -15,6 +16,7 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
+
 import com.example.newlocation02.R
 import com.github.jokar.permission.PermissionUtil
 import com.lc.basemvp.BaseFragment
@@ -22,6 +24,7 @@ import com.lc.newlocation.bean.BlueToothBean
 import com.lc.newlocation.mvp.IBluetoothView
 import com.lc.newlocation.mvp.presenter.BluetoothPresenter
 import com.lc.newlocation.myInterface.impl.TraditionBlueToothImpl
+import com.lc.utils.SPUtils
 import com.qmuiteam.qmui.widget.pullRefreshLayout.QMUIPullRefreshLayout
 import es.dmoral.toasty.Toasty
 import kotlinx.android.synthetic.main.fragment_bluetooth_study.*
@@ -81,6 +84,12 @@ class BluetoothStudyFragment : BaseFragment<IBluetoothView, BluetoothPresenter>(
 //          mPresenter.send(et_sendMsg.text.toString())
 //        }
 //
+        var time by SPUtils(0L)
+        time = 500L
+
+        val typedValue = TypedValue()
+        context.theme.resolveAttribute(R.attr.QMUILoadingStyle, typedValue,true)
+        typedValue.data
         btn_goto_Map.setOnClickListener {
             Navigation.findNavController(it).navigate(R.id.action_bluetoothStudyFragment_to_lookBatteryFragment)
         }

@@ -49,7 +49,7 @@ dependencies {
     // explicitly depend on RxJava's latest version for bug fixes and new features.
     // (see https://github.com/ReactiveX/RxJava/releases for latest 3.x.x version)
     api 'io.reactivex.rxjava3:rxjava:3.0.1'
-    implementation project(path: ':basemvp')
+//    implementation project(path: ':basemvp')
 //    implementation 'com.github.v200123:baseMvp:V1.0.0'
 
 }
