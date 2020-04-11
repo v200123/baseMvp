@@ -1,37 +1,33 @@
 package com.example.newlocation02.fragment
 
-import android.animation.Keyframe
 import android.animation.ObjectAnimator
-import android.animation.PropertyValuesHolder
-import android.view.animation.Animation
-import android.view.animation.AnimationUtils
-import android.view.animation.RotateAnimation
-import androidx.room.Room
-import com.chad.library.adapter.base.BaseQuickAdapter
+import android.animation.TypeEvaluator
+import android.graphics.Color
+import android.util.Log
+import androidx.navigation.NavAction
+import androidx.navigation.Navigation
 import com.example.newlocation02.R
-import com.example.newlocation02.entity.MyHomeWork
-import com.example.newlocation02.entity.database.HomeWorkDataBase
 import com.example.newlocation02.mvp.IAnimationView
 import com.example.newlocation02.mvp.presenter.AnimationPresenter
 import com.lc.basemvp.BaseFragment
-import com.qmuiteam.qmui.util.QMUIDisplayHelper
 import kotlinx.android.synthetic.main.fragment_animation.*
+import kotlin.math.abs
+import kotlin.math.roundToInt
 
 class AnimationFragment : BaseFragment<IAnimationView, AnimationPresenter>() {
 
-    val homeWorkDataBase by lazy {
-        Room.databaseBuilder(context, HomeWorkDataBase::class.java, "my_home.db")
-            .allowMainThreadQueries()
-            .build()
-    }
-    val mMyHomeWorkDao by lazy { homeWorkDataBase.getHomeWork()}
+    //    val homeWorkDataBase by lazy {
+//        Room.databaseBuilder(context, HomeWorkDataBase::class.java, "my_home.db")
+//            .allowMainThreadQueries()
+//            .build()
+//    }
+//    val mMyHomeWorkDao by lazy { homeWorkDataBase.getHomeWork()}
     override fun createPresenter(): AnimationPresenter = AnimationPresenter()
 
     override fun getLayoutId(): Int = R.layout.fragment_animation
 
     override fun initData() {
         addHomeWork()
-
     }
 
     override fun onStart() {
@@ -49,60 +45,74 @@ class AnimationFragment : BaseFragment<IAnimationView, AnimationPresenter>() {
     }
 
     override fun initView() {
-        startAnimation()
+        button_animatioin01.setOnClickListener {
+//            ObjectAnimator.ofObject(MyAnimatorView,"painColor",MyTypeEvaluator(),MyAnimatorView.painColor,0xFFFFFF).apply {
+//                duration = 10000
+//                start()
+            Navigation.findNavController(it).navigate(R.id.action_animationFragment_to_playMusicFragment)
+            }
+        }
 
-    }
 
-    private fun startAnimation() {
-//        val apply = RotateAnimation(
-//            0f,
-//            360f,
-//            Animation.RELATIVE_TO_SELF,
-//            0.5f,
-//            Animation.RELATIVE_TO_SELF,
-//            0.5f
-//        )
-//            .apply {
-//                duration = 1500
-//                fillAfter = false
-//            }
-        val loadAnimation = AnimationUtils.loadAnimation(context, R.anim.animation_entry_01)
-//            button_animatioin01.animation = apply
-            button_animatioin01.startAnimation(loadAnimation)
-
-//        val ofKeyframe = PropertyValuesHolder.ofKeyframe("translationX", Keyframe.ofFloat(40f, 55f))
-//        ObjectAnimator.ofFloat(
-//            button_animatioin01,
-//            "translationX",
-//            0f
-//            ,
-//            QMUIDisplayHelper.getScreenWidth(context).toFloat() / 2,
-//            QMUIDisplayHelper.getScreenWidth(context).toFloat()
-//        ).apply {
-//            duration = 6000
-//            start()
-//        }
-
-//        val toFloat=
-//            (QMUIDisplayHelper.getScreenHeight(context) - button_animatioin01.height - QMUIStatusBarHelper.getStatusbarHeight(
-//                context
-//            )).toFloat()
-//        button_animatioin01.setOnClickListener{
-////            it.animate().alpha(0f).setDuration(5000).rotation(360f)
-//            ValueAnimator.ofFloat(it.translationY,
-//                toFloat,toFloat/4,toFloat,toFloat/2
-//            )
-//                .apply {
-//                    duration = 5000
-//                    repeatCount = 2
-//                    repeatMode = ValueAnimator.RESTART
-//                    addUpdateListener { button_animatioin01.translationY = it.animatedValue as Float
-//                    Log.d("动画","当前的值为${it.animatedValue}")}
-//                }.start()
-//        }
-    }
 
     override fun showMsg(msg: String) {
-        TODO("Not yet implemented")
+        Log.e("出错了", msg)
     }
+}
+
+class MyTypeEvaluator : TypeEvaluator<Int> {
+    override fun evaluate(fraction: Float, startValue: Int?, endValue: Int?): Int {
+        val startBlue = Color.blue(startValue!!)
+        val startRed = Color.red(startValue)
+        val startGreen = Color.green(startValue)
+        var endBlue = Color.blue(endValue!!)
+        var endRed = Color.red(endValue)
+        var endGreen = Color.green(endValue)
+
+        val redDiff = abs(startRed - endRed);
+        val greenDiff = abs(startGreen - endGreen);
+        val blueDiff = abs(startBlue - endBlue);
+        val colorDiff = redDiff + greenDiff + blueDiff;
+        when {
+            startRed != endRed -> {
+                endRed = getCurrentColor(startRed, endRed, colorDiff, redDiff,
+                    fraction);
+                // getCurrentColor()决定如何根据差值来决定颜色变化的快慢 ->>关注1
+            }
+            startGreen != endGreen -> {
+                endGreen = getCurrentColor(startGreen, endGreen, colorDiff,
+                    redDiff, fraction);
+            }
+            startBlue != endBlue -> {
+                endBlue = getCurrentColor(startBlue, endBlue, colorDiff,
+                    redDiff + greenDiff, fraction);
+            }
+        }
+        return Color.rgb(endRed,endGreen,endBlue)
+    }
+
+    private fun getCurrentColor(
+        startColor: Int,
+        endColor: Int,
+        colorDiff: Int,
+        offset: Int,
+        fraction: Float
+    ): Int {
+        var currentColor: Int
+        if (startColor > endColor) {
+            currentColor =  ((startColor - (fraction * colorDiff - offset)).roundToInt());
+            if (currentColor < endColor) {
+                currentColor = endColor;
+            }
+        } else {
+            currentColor =((startColor + (fraction * colorDiff - offset)).roundToInt());
+            if (currentColor > endColor) {
+                currentColor = endColor;
+            }
+        }
+        return currentColor
+
+    }
+
+
 }

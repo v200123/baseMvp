@@ -12,7 +12,7 @@ abstract class BaseFragment<V : IBaseFragmentView, P : BasePresenter<V>> : Fragm
 
 
     var rootView: View? = null
-    private lateinit var mContext: Context
+     lateinit var mContext: Context
     val mPresenter: P by lazy {
         createPresenter()
     }
@@ -32,6 +32,7 @@ abstract class BaseFragment<V : IBaseFragmentView, P : BasePresenter<V>> : Fragm
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        "当前的设备是\t${this::class.java.simpleName}".out()
         if (rootView == null) {
             rootView = inflater.inflate(getLayoutId(), container, false)
         }

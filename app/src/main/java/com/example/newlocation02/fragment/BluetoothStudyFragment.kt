@@ -84,8 +84,8 @@ class BluetoothStudyFragment : BaseFragment<IBluetoothView, BluetoothPresenter>(
 //          mPresenter.send(et_sendMsg.text.toString())
 //        }
 //
-        var time by SPUtils(0L)
-        time = 500L
+//        var time by SPUtils(0L)
+//        time = 500L
 
         val typedValue = TypedValue()
         context.theme.resolveAttribute(R.attr.QMUILoadingStyle, typedValue,true)

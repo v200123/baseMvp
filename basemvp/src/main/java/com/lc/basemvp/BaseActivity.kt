@@ -1,7 +1,12 @@
 package com.lc.basemvp
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+
+fun <T>T.out(){
+    Log.d("日志输出",this.toString())
+}
 
 abstract class BaseActivity<V : IBaseView,P : BasePresenter<V>> : AppCompatActivity(),IBaseView  {
 
@@ -14,6 +19,7 @@ abstract class BaseActivity<V : IBaseView,P : BasePresenter<V>> : AppCompatActiv
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(getLayoutId())
+        "当前的设备是\t${this::class.java.simpleName}".out()
         initView()
         mPresenter.attachView(this as V)
         if(savedInstanceState!=null)

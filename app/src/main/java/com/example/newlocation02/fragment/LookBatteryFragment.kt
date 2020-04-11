@@ -49,18 +49,18 @@ class LookBatteryFragment : BaseFragment<ILookBatteryFragmentView, LookBatteryFr
 
     inner class BatteryVolter : BroadcastReceiver(){
         override fun onReceive(context: Context?, intent: Intent?) {
-            val action = intent?.action
-            if(action == Intent.ACTION_BATTERY_CHANGED)
-            {
-                val intExtra = intent.getIntExtra(BatteryManager.EXTRA_VOLTAGE, -1)
-                textView.text = "$intExtra"
-//                // 当前电池的电压
-//                int voltage = intent.getIntExtra(BatteryManager.EXTRA_VOLTAGE,
-//                -1);
-//                // 电池的健康状态
-//                int health = intent
-//                        .getIntExtra(BatteryManager.EXTRA_HEALTH, -1);
-
-            }
+//            val action = intent?.action
+//            if(action == Intent.ACTION_BATTERY_CHANGED)
+//            {
+//                val intExtra = intent.getIntExtra(BatteryManager.EXTRA_VOLTAGE, -1)
+//                textView.text = "$intExtra"
+////                // 当前电池的电压
+////                int voltage = intent.getIntExtra(BatteryManager.EXTRA_VOLTAGE,
+////                -1);
+////                // 电池的健康状态
+////                int health = intent
+////                        .getIntExtra(BatteryManager.EXTRA_HEALTH, -1);
+//
+//            }
         }
     }}

@@ -21,8 +21,7 @@
         <action
             android:id="@+id/action_bluetoothStudyFragment_to_lookBatteryFragment"
             app:destination="@id/lookBatteryFragment"
-            app:enterAnim="@anim/entry"
-            app:exitAnim="@anim/animation_entry_01" />
+            app:enterAnim="@anim/entry" />
     </fragment>
     <fragment
         android:id="@+id/lookBatteryFragment"
@@ -30,12 +29,18 @@
         android:label="LookBatteryFragment" >
         <action
             android:id="@+id/action_lookBatteryFragment_to_animationFragment"
-            app:destination="@id/animationFragment"
-            app:enterAnim="@anim/animation_entry_01"
-            app:exitAnim="@anim/animatioin_exit_01" />
+            app:destination="@id/animationFragment" />
     </fragment>
     <fragment
         android:id="@+id/animationFragment"
         android:name="com.example.newlocation02.fragment.AnimationFragment"
-        android:label="AnimationFragment" />
+        android:label="AnimationFragment" >
+        <action
+            android:id="@+id/action_animationFragment_to_playMusicFragment"
+            app:destination="@id/playMusicFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/playMusicFragment"
+        android:name="com.example.newlocation02.fragment.PlayMusicFragment"
+        android:label="PlayMusicFragment" />
 </navigation>
