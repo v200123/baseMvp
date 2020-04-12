@@ -1,6 +1,7 @@
 package com.example.newlocation02.view
 
 import android.content.Context
+import android.content.res.TypedArray
 import android.util.AttributeSet
 import android.view.MotionEvent
 import androidx.appcompat.widget.AppCompatButton
@@ -23,11 +24,12 @@ class CountDownButton @JvmOverloads constructor(
 //    endText:String
 ) : AppCompatButton(context, attrs, defStyleAttr) {
     private var enableCount = true
-    private var time = 10L
-
+    private val typedArray: TypedArray = context.obtainStyledAttributes(attrs,R.styleable.CountDownButton)
+    private  var time :Long = 10L
     private var countHelp = CountHelp
     init {
         countHelp.countDownButton = this
+        time = typedArray.getInteger(R.styleable.CountDownButton_countTime,10).toLong()
     }
 
     fun start() {

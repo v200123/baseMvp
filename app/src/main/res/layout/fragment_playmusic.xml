@@ -76,7 +76,7 @@
     <com.example.newlocation02.view.CountDownButton
         android:id="@+id/test_01"
         android:layout_width="0dp"
-        app:countTime = "500"
+        app:countTime="5000"
         android:text="sdfsdfsdfcxvxvvbb"
         android:layout_marginTop="@dimen/dp_40"
         android:layout_height="wrap_content"
