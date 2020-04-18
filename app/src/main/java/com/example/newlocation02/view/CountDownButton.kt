@@ -30,6 +30,7 @@ class CountDownButton @JvmOverloads constructor(
     init {
         countHelp.countDownButton = this
         time = typedArray.getInteger(R.styleable.CountDownButton_countTime,10).toLong()
+        typedArray.recycle()
     }
 
     fun start() {

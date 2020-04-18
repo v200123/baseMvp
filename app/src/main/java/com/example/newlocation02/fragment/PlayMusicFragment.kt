@@ -5,12 +5,14 @@ import android.content.res.AssetFileDescriptor
 import android.media.MediaPlayer
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.Navigation
 import com.example.newlocation02.R
 import com.example.newlocation02.mvp.IPlayMusicView
 import com.example.newlocation02.mvp.presenter.PlayMusicPresenter
 import com.lc.basemvp.BaseFragment
 import com.lc.basemvp.out
 import com.lc.newlocation.click
+import com.qmuiteam.qmui.kotlin.onClick
 import kotlinx.android.synthetic.main.fragment_playmusic.*
 import java.util.*
 
@@ -28,7 +30,7 @@ class PlayMusicFragment : BaseFragment<IPlayMusicView, PlayMusicPresenter>() {
 
     override fun initView() {
         button5.click {"我被点击了".out()}
-        test_01.apply { click { "开始歧视了".out()
+        test_01.apply { click { "开始计时了".out()
             start()
         }
         }
@@ -44,6 +46,7 @@ class PlayMusicFragment : BaseFragment<IPlayMusicView, PlayMusicPresenter>() {
 
          },0,1000)
         }
+        goto_Indicator.click { Navigation.findNavController(it).navigate(R.id.action_playMusicFragment_to_createIndicator) }
         button2.setOnClickListener { musicPlay.pause() }
         button4.setOnClickListener {
             val assetManager = mContext.assets
@@ -65,12 +68,12 @@ class PlayMusicFragment : BaseFragment<IPlayMusicView, PlayMusicPresenter>() {
     }
 
     override fun initData() {
-        val assetManager = mContext.assets
-        val openFd = assetManager.openFd(list[position])
-        with(musicPlay) {
-            setDataSource(openFd.fileDescriptor, openFd.startOffset, openFd.length)
-            prepare()
-        }
+//        val assetManager = mContext.assets
+//        val openFd = assetManager.openFd(list[position])
+//        with(musicPlay) {
+//            setDataSource(openFd.fileDescriptor, openFd.startOffset, openFd.length)
+//            prepare()
+//        }
     }
 
     override fun onDestroy() {

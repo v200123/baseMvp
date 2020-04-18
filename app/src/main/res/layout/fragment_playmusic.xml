@@ -83,4 +83,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button5" />
+
+    <Button
+        android:id="@+id/goto_Indicator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="跳转到指示器界面"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/test_01" />
 </androidx.constraintlayout.widget.ConstraintLayout>
