@@ -69,10 +69,10 @@ class IndicatorLinearLayout @JvmOverloads constructor(
             for (i in 0 until it.size) {
                 paint.color = it[i]
                 if (i == 0) {
-                    canvas?.drawCircle( radius, (radius + 80) / 2, radius, paint)
+                    canvas?.drawCircle(radius, (radius + 80) / 2, radius, paint)
                 } else
                     canvas?.drawCircle(
-                        i * (2 * radius + dotPitch)+radius,
+                        i * (2 * radius + dotPitch) + radius,
                         (radius + 80) / 2,
                         radius,
                         paint

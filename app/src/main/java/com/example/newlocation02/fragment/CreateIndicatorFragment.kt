@@ -10,22 +10,19 @@ import com.lc.basemvp.out
 import es.dmoral.toasty.Toasty
 import kotlinx.android.synthetic.main.fragment_indicator.*
 
-class CreateIndicatorFragment : BaseFragment<CreateIndicatorView,CreateIndicatorPresenter>() {
-    override fun createPresenter(): CreateIndicatorPresenter  = CreateIndicatorPresenter()
+class CreateIndicatorFragment : BaseFragment<CreateIndicatorView, CreateIndicatorPresenter>() {
+    override fun createPresenter(): CreateIndicatorPresenter = CreateIndicatorPresenter()
 
-    override fun getLayoutId(): Int= R.layout.fragment_indicator
+    override fun getLayoutId(): Int = R.layout.fragment_indicator
 
     override fun initView() {
-        test_indicator.apply {
-//            setColorList(mutableListOf(Color.BLACK,Color.BLUE,Color.CYAN,Color.DKGRAY,Color.GRAY))
-            setClickListener { "我什么都不做".out() }
-        }
+        colorCaptation.addColorList(mutableListOf(Color.GRAY, Color.CYAN, Color.LTGRAY, Color.RED))
     }
 
     override fun initData() {
     }
 
-    override fun showMsg(msg: String){
-        Toasty.error(mContext,msg).show()
+    override fun showMsg(msg: String) {
+        Toasty.error(mContext, msg).show()
     }
 }

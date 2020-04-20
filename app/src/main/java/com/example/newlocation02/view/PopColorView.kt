@@ -7,11 +7,13 @@ import android.graphics.Paint
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
+import android.view.View.MeasureSpec.EXACTLY
 import android.widget.TextView
 import com.lc.basemvp.out
 import com.qmuiteam.qmui.util.QMUIDisplayHelper
 import com.qmuiteam.qmui.widget.popup.QMUIPopup
 import com.qmuiteam.qmui.widget.popup.QMUIPopups
+import android.view.View.MeasureSpec.AT_MOST as AT_MOST
 
 //typealias click a:VIew->Unit
 
@@ -20,8 +22,9 @@ class PopColorView @JvmOverloads constructor(
     private var color: Int = Color.LTGRAY
 ) : View(context, attrs, defStyleAttr) {
 
-
-    var paint: Paint
+    private val baseWidth = QMUIDisplayHelper.dp2px(this.context,80)
+    private val baseHeight = QMUIDisplayHelper.dp2px(this.context,80)
+    private var paint: Paint
     var showPop = true
     var popIsShow = false
     var radius = QMUIDisplayHelper.dp2px(context, 12)
@@ -36,10 +39,37 @@ class PopColorView @JvmOverloads constructor(
         paint = Paint(Paint.ANTI_ALIAS_FLAG)
     }
 
-    override fun onTouchEvent(event: MotionEvent?): Boolean {
-        return super.onTouchEvent(event)
+    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec)
+        setMeasuredDimension(measureWidth(widthMeasureSpec),measureHeight(heightMeasureSpec))
     }
 
+    fun measureWidth(widthMeasureSpec: Int):Int{
+        var size = MeasureSpec.getSize(widthMeasureSpec)
+        when(MeasureSpec.getMode(widthMeasureSpec))
+        {
+            EXACTLY,AT_MOST ->{
+               size =  size.coerceAtMost(baseWidth)
+            }
+            MeasureSpec.UNSPECIFIED -> {
+
+            }
+        }
+        return size
+    }
+    fun measureHeight(heightMeasureSpec: Int):Int{
+        var size = MeasureSpec.getSize(heightMeasureSpec)
+        when(MeasureSpec.getMode(heightMeasureSpec))
+        {
+            EXACTLY,AT_MOST ->{
+               size =  size.coerceAtMost(baseHeight)
+            }
+            MeasureSpec.UNSPECIFIED -> {
+
+            }
+        }
+        return size
+    }
 
     fun setClickListener(secondClick:(view:View)->Unit)
     {
@@ -47,7 +77,7 @@ class PopColorView @JvmOverloads constructor(
         setOnClickListener{
             secondClick(it)
             if(!popIsShow) {
-                pop = QMUIPopups.popup(context).arrow(true).arrowSize(80, 80)
+                pop = QMUIPopups.popup(context).arrow(true).arrowSize(15, 20)
                     .preferredDirection(QMUIPopup.DIRECTION_TOP)
                     .view(TextView(context).apply { text = "当前的颜色是${color}" })
                     .onDismiss { popIsShow = false }
