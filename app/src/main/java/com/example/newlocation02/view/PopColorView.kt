@@ -19,7 +19,7 @@ import android.view.View.MeasureSpec.AT_MOST as AT_MOST
 
 class PopColorView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0,
-    private var color: Int = Color.LTGRAY
+    var color: Int = Color.LTGRAY
 ) : View(context, attrs, defStyleAttr) {
 
     private val baseWidth = QMUIDisplayHelper.dp2px(this.context,80)
