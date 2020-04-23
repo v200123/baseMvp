@@ -16,7 +16,7 @@ class CreateIndicatorFragment : BaseFragment<CreateIndicatorView, CreateIndicato
     override fun getLayoutId(): Int = R.layout.fragment_indicator
 
     override fun initView() {
-        colorCaptation.addColorList(mutableListOf(Color.GRAY, Color.CYAN, Color.LTGRAY, Color.RED))
+//        colorCaptation.addColorList(mutableListOf(Color.GRAY, Color.CYAN, Color.LTGRAY, Color.RED))
     }
 
     override fun initData() {

@@ -1,81 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.example.newlocation02.view.PopLinearLayout
+<FrameLayout
     android:id="@+id/colorCaptation"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:orientation="horizontal"
     android:layout_height="match_parent">
-<!--    <com.example.newlocation02.view.PopColorView-->
-<!--        android:id="@+id/test_indicator"-->
-<!--        android:layout_gravity="bottom"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"/>-->
-<!--    <com.example.newlocation02.view.PopColorView-->
-<!--        android:id="@+id/test_indicator2"-->
-<!--        android:layout_gravity="bottom"-->
-<!--        android:layout_width="80dp"-->
-<!--        android:layout_height="80dp"/>-->
-<!--    <com.example.newlocation02.view.PopColorView-->
-<!--        android:id="@+id/test_indicator3"-->
-<!--        android:layout_gravity="bottom"-->
-<!--        android:layout_width="80dp"-->
-<!--        android:layout_height="80dp"/>-->
-<!--    <com.example.newlocation02.view.PopColorView-->
-<!--        android:id="@+id/test_indicator4"-->
-<!--        android:layout_gravity="bottom"-->
-<!--        android:layout_width="80dp"-->
-<!--        android:layout_height="80dp"/>-->
-<!--    <com.example.newlocation02.view.PopColorView-->
-<!--        android:id="@+id/test_indicator5"-->
-<!--        android:layout_gravity="bottom"-->
-<!--        android:layout_width="80dp"-->
-<!--        android:layout_height="80dp"/> <com.example.newlocation02.view.PopColorView-->
-<!--        android:id="@+id/test_indicator6"-->
-<!--        android:layout_gravity="bottom"-->
-<!--        android:layout_width="80dp"-->
-<!--        android:layout_height="80dp"/> <com.example.newlocation02.view.PopColorView-->
-<!--        android:id="@+id/test_indicator7"-->
-<!--        android:layout_gravity="bottom"-->
-<!--        android:layout_width="80dp"-->
-<!--        android:layout_height="80dp"/> <com.example.newlocation02.view.PopColorView-->
-<!--        android:id="@+id/test_indicator8"-->
-<!--        android:layout_gravity="bottom"-->
-<!--        android:layout_width="80dp"-->
-<!--        android:layout_height="80dp"/> <com.example.newlocation02.view.PopColorView-->
-<!--        android:id="@+id/test_indicator9"-->
-<!--        android:layout_gravity="bottom"-->
-<!--        android:layout_width="80dp"-->
-<!--        android:layout_height="80dp"/> <com.example.newlocation02.view.PopColorView-->
-<!--        android:id="@+id/test_indicator10"-->
-<!--        android:layout_gravity="bottom"-->
-<!--        android:layout_width="80dp"-->
-<!--        android:layout_height="80dp"/> <com.example.newlocation02.view.PopColorView-->
-<!--        android:id="@+id/test_indicator11"-->
-<!--        android:layout_gravity="bottom"-->
-<!--        android:layout_width="80dp"-->
-<!--        android:layout_height="80dp"/> <com.example.newlocation02.view.PopColorView-->
-<!--        android:id="@+id/test_indicator12"-->
-<!--        android:layout_gravity="bottom"-->
-<!--        android:layout_width="80dp"-->
-<!--        android:layout_height="80dp"/> <com.example.newlocation02.view.PopColorView-->
-<!--        android:id="@+id/test_indicator13"-->
-<!--        android:layout_gravity="bottom"-->
-<!--        android:layout_width="80dp"-->
-<!--        android:layout_height="80dp"/> <com.example.newlocation02.view.PopColorView-->
-<!--        android:id="@+id/test_indicator14"-->
-<!--        android:layout_gravity="bottom"-->
-<!--        android:layout_width="80dp"-->
-<!--        android:layout_height="80dp"/> <com.example.newlocation02.view.PopColorView-->
-<!--        android:id="@+id/test_indicator15"-->
-<!--        android:layout_gravity="bottom"-->
-<!--        android:layout_width="80dp"-->
-<!--        android:layout_height="80dp"/> <com.example.newlocation02.view.PopColorView-->
-<!--        android:id="@+id/test_indicator16"-->
-<!--        android:layout_gravity="bottom"-->
-<!--        android:layout_width="80dp"-->
-<!--        android:layout_height="80dp"/> <com.example.newlocation02.view.PopColorView-->
-<!--        android:id="@+id/test_indicator17"-->
-<!--        android:layout_gravity="bottom"-->
-<!--        android:layout_width="80dp"-->
-<!--        android:layout_height="80dp"/>-->
-</com.example.newlocation02.view.PopLinearLayout>
+    <com.example.newlocation02.view.CapacitySeekView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+</FrameLayout>
