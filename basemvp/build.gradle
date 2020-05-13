@@ -33,6 +33,7 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.core:core-ktx:1.2.0'
     testImplementation 'junit:junit:4.12'
+    implementation 'com.kongzue.dialog_v3:dialog:3.1.9'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     api 'com.github.GrenderG:Toasty:1.4.2'

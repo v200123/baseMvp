@@ -73,7 +73,7 @@ class MapFragment : BaseFragment<IMapFragment, IMapPresenter>() {
         )
 
         showAddress.setOnClickListener {
-            Navigation.findNavController(it).navigate(R.id.action_mapFragment_to_lookBatteryFragment)
+
         }
 
         baiduMap.setOnMapLongClickListener {

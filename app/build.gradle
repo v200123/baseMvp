@@ -58,5 +58,6 @@ dependencies {
     implementation project(path: ':utils')
     implementation project(path: ':basemvp')
     implementation 'androidx.media2:media2-player:1.0.3'
+    implementation 'com.orhanobut:logger:2.2.0'
 //    implementation 'com.github.zhangye1994:GithubTest:1.0.1'
 }

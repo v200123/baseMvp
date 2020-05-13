@@ -5,7 +5,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.kongzue.dialog.v3.WaitDialog
 
 abstract class BaseFragment<V : IBaseFragmentView, P : BasePresenter<V>> : Fragment(),
     IBaseFragmentView {
@@ -17,12 +19,12 @@ abstract class BaseFragment<V : IBaseFragmentView, P : BasePresenter<V>> : Fragm
         createPresenter()
     }
 
-    override fun showLoading() {
-        TODO("Not yet implemented")
+    override fun showLoading(message: String) {
+        WaitDialog.show(mContext as AppCompatActivity,message).setTipTime(1500)
     }
 
     override fun hideLoading() {
-        TODO("Not yet implemented")
+       WaitDialog.dismiss()
     }
 
     abstract fun createPresenter(): P

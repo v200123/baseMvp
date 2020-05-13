@@ -3,4 +3,10 @@
     <declare-styleable name="CountDownButton" >
         <attr name="countTime" format="integer" />
     </declare-styleable>
+
+    <declare-styleable name="GradientProgressView">
+        <attr name="StartColor" format="color|reference"/>
+        <attr name="EndColor" format="color|reference"/>
+
+    </declare-styleable>
 </resources>

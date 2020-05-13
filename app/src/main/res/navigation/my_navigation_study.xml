@@ -1,23 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/my_navigation_study"
-    app:startDestination="@id/createIndicator">
+    app:startDestination="@id/weatherFragment">
 
-    <fragment
-        android:id="@+id/mapFragment"
-        android:name="com.lc.newlocation.fragment.MapFragment"
-        android:label="MapFragment" >
-        <action
-            android:id="@+id/action_mapFragment_to_lookBatteryFragment"
-            app:destination="@id/lookBatteryFragment" />
-    </fragment>
     <fragment
         android:id="@+id/bluetoothStudyFragment"
         android:name="com.lc.newlocation.fragment.BluetoothStudyFragment"
         android:label="BluetoothStudyFragment" >
-        <action
-            android:id="@+id/action_bluetoothStudyFragment_to_mapFragment"
-            app:destination="@id/mapFragment" />
         <action
             android:id="@+id/action_bluetoothStudyFragment_to_lookBatteryFragment"
             app:destination="@id/lookBatteryFragment"
@@ -51,4 +40,8 @@
         android:id="@+id/createIndicator"
         android:name="com.example.newlocation02.fragment.CreateIndicatorFragment"
         android:label="CreateIndicator" />
+    <fragment
+        android:id="@+id/weatherFragment"
+        android:name="com.example.newlocation02.fragment.WeatherFragment"
+        android:label="WeatherFragment" />
 </navigation>

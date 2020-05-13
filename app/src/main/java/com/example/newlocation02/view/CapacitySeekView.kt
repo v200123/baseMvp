@@ -78,7 +78,7 @@ class CapacitySeekView @JvmOverloads constructor(
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
         super.onSizeChanged(w, h, oldw, oldh)
         "当前的尺寸变化了，之前是宽：$oldw,高：$oldh,现在是宽：$w,高：$h".out()
-        seekWidth = (w - mStrokeWidth).toInt()
+        seekWidth = measuredWidth
         seekHigh = h.coerceAtMost(defaultHight)
     }
 

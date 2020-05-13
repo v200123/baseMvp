@@ -3,6 +3,9 @@ package com.example.newlocation02
 import android.app.Application
 import android.content.Context
 import com.lc.utils.LcUtils
+import com.orhanobut.logger.AndroidLogAdapter
+import com.orhanobut.logger.Logger
+
 
 /**
 @packageName com.lc.newlocation
@@ -16,6 +19,7 @@ class MyApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         LcUtils.init(this)
+        Logger.addLogAdapter(AndroidLogAdapter())
 //        SDKInitializer.initialize(this)
 //        SDKInitializer.setCoordType(CoordType.BD09LL)
 
